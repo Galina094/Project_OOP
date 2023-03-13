@@ -2,7 +2,7 @@ package Unit;
 
 public class Monk extends Magical_Class{
     public Monk(String name) {
-        super(200, 6,25,25,100,35, name);        
+        super(12, 20, 5,4,7,1,12, name);        
     }
 
     @Override
@@ -10,4 +10,9 @@ public class Monk extends Magical_Class{
         return String.format("Monk: %s ", 
                                     super.getInfo());
     } 
+
+    @Override
+    public String toString() {        
+        return "Monk";
+    }
 }

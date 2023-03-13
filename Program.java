@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Random;
 
 import Unit.BaseHero;
@@ -36,6 +37,7 @@ public class Program {
 
         ArrayList<BaseHero> team1 = new ArrayList<>();
         ArrayList<BaseHero> team2 = new ArrayList<>();
+        ArrayList<BaseHero> joinTeam = new ArrayList<>();
 
         for (int i = 0; i < 10; i++) {
             switch (new Random().nextInt(7)) {
@@ -98,16 +100,38 @@ public class Program {
         }  
         
         System.out.println("------------------------");
+
         System.out.println("!!! Team2 !!!");
         for (int i = 0; i < team1.size(); i++) {
-            System.out.println(team1.get(i).getInfo());                                 
-        }  
+            System.out.println(team2.get(i).getInfo());                                 
+        } 
 
-        
-        
-        //System.out.printf(team1.forEach(u -> u.getInfo()));
+        joinTeam.addAll(team1);
+        joinTeam.addAll(team2);
 
+        joinTeam.sort(new Comparator<BaseHero>() {
+            @Override
+            public int compare (BaseHero h1, BaseHero h2){
+                if (h1.getSpeed() == h2.getSpeed())
+                    return 0;
+                else if (h1.getSpeed() > h2.getSpeed())
+                    return 1;
+                else return -1;
+
+            }
+        });
+
+        // System.out.println("!!! Sorted_Join_Team !!!");
+        // for (int i = 0; i < joinTeam.size(); i++) {
+        //     System.out.println(joinTeam.get(i).getInfo());                                 
+        // }
+
+        team1.forEach(u -> u.step(team1, team2)); // вызов step у всех, кто записан в этом списке. Всем,
+        // кто в team1 находится будет передавться team2, т.е. у каждого из них будет вызываться 
+        // метод step и в параметре будет передавться team2. team1 - своя команда, team2 - вражеская
         
+        
+               
     }
 
     private static String getName(){        

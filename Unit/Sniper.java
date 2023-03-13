@@ -1,20 +1,12 @@
 package Unit;
 
+import java.util.ArrayList;
+
 public class Sniper extends Shooter_Class {
 
     public Sniper(String name) {
-        super(100,3,15,15,40,8, name);
-    }
-
-    
-
-    @Override
-    public void step() {
-        System.out.println("Sniper shoot");
-        // super.step();
-    }
-
-
+        super(15, 20, 9,10,10,32,3, name);
+    }  
 
     @Override
     public String getInfo() {
@@ -22,9 +14,5 @@ public class Sniper extends Shooter_Class {
                                     super.getInfo());
     } 
 
-    
-
-
-
-    
+       
 }
