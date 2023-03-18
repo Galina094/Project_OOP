@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import javax.management.ConstructorParameters;
+import javax.swing.text.Position;
 
 public abstract class BaseHero implements UnitInterface {
 
@@ -18,32 +19,33 @@ public abstract class BaseHero implements UnitInterface {
     protected int speed;
     protected int damage;
     protected int defence;
-    protected final String NAME;
+    protected final String name;
+    protected String state;
+    protected Coordinats position;   
 
-    
     public void getNAME() {
         // System.out.println(NAME);
     }
 
     public int getSpeed() {
         return speed;
-    }
+    }   
 
-      
-
-    public BaseHero(int hp, int maxHp, int speed, int damage, int defence, String nAME) {
+    public BaseHero(int hp, int maxHp, int speed, int damage, int defence, String name, int x, int y) {
         this.hp = hp;
         this.maxHp = maxHp;
         this.speed = speed;
         this.damage = damage;
         this.defence = defence;
-        NAME = nAME;
+        this.name = name;
+        state = "Stand";
+        position = new Coordinats(x, y);
     }
 
     @Override
     public String getInfo(){
-        return String.format(" %s  Hp: %d  Speed: %d   Damage: %d   Defence: %d" ,   
-                                         this.NAME, this.hp, this.speed, this.damage, this.defence);
+        return String.format(" %s  Hp: %d  Speed: %d   Damage: %d   Defence: %d X: %d Y: %d State: %s" ,   
+                                         this.name, this.hp, this.speed, this.damage, this.defence, this.position.x, this.position.y, this.state);
     }
 
     @Override
@@ -68,6 +70,27 @@ public abstract class BaseHero implements UnitInterface {
         System.out.printf(" Power of knock = %d\n", causedDamage);
         target.getDamage(causedDamage);
     }
+
+    public String getDistance(int x, int y, ArrayList<BaseHero> AttacksTeam){
+        String target = "";
+        double b = 100;
+        for (BaseHero baseHero : AttacksTeam) {
+            if (!baseHero.state.equals("Die")) {
+                double a = Math.sqrt(Math.pow(x - baseHero.position.x, 2) + Math.pow(y - baseHero.position.y,2));
+                if (a < b) {                
+                    b=a;   
+                    target = baseHero.name;             
+                }
+                
+            }
+            
+        }
+        return target;        
+    }
+
+    
+
+
 
 
 

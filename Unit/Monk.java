@@ -1,8 +1,8 @@
 package Unit;
 
 public class Monk extends Magical_Class{
-    public Monk(String name) {
-        super(12, 20, 5,4,7,1,12, name);        
+    public Monk(String name, int x, int y) {
+        super(12, 20, 5,4,7,name, x, y, 10,12);        
     }
 
     @Override

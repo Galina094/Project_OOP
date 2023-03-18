@@ -3,7 +3,7 @@ import java.util.Comparator;
 import java.util.Random;
 
 import Unit.BaseHero;
-import Unit.FarmerMen;
+import Unit.FarmerMan;
 import Unit.Magician;
 import Unit.Monk;
 import Unit.Names;
@@ -20,6 +20,8 @@ import Unit.XBowMan;
  // персонажей getInfo.
 
 public class Program {
+
+    public static final int UNIT = 10;
 
     public static void main(String[] args) {       
 
@@ -39,52 +41,52 @@ public class Program {
         ArrayList<BaseHero> team2 = new ArrayList<>();
         ArrayList<BaseHero> joinTeam = new ArrayList<>();
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < UNIT; i++) {
             switch (new Random().nextInt(7)) {
                 case 0:
-                    team1.add(new FarmerMen(getName()));                    
+                    team1.add(new FarmerMan(getName(), 1, i+1));                    
                     break;
                 case 1:
-                    team1.add(new Magician(getName()));
+                    team1.add(new Magician(getName(), 1, i+1));
                     break;
                 case 2:
-                    team1.add(new Monk(getName()));
+                    team1.add(new Monk(getName(), 1, i+1));
                     break;
                 case 3:
-                    team1.add(new Pikeman(getName()));
+                    team1.add(new Pikeman(getName(), 1, i+1));
                     break;
                 case 4:
-                    team1.add(new Robber(getName()));
+                    team1.add(new Robber(getName(), 1, i+1));
                     break;
                 case 5:
-                    team1.add(new Sniper(getName()));
+                    team1.add(new Sniper(getName(), 1, i+1));
                     break;
                 default:
-                    team1.add(new XBowMan(getName()));
+                    team1.add(new XBowMan(getName(), 1, i+1));
                     break;
             }
 
             switch (new Random().nextInt(7)) {
                 case 0:
-                    team2.add(new FarmerMen(getName()));                    
+                    team2.add(new FarmerMan(getName(), 10, i+1));                    
                     break;
                 case 1:
-                    team2.add(new Magician(getName()));
+                    team2.add(new Magician(getName(), 10, i+1));
                     break;
                 case 2:
-                    team2.add(new Monk(getName()));
+                    team2.add(new Monk(getName(), 10, i+1));
                     break;
                 case 3:
-                    team2.add(new Pikeman(getName()));
+                    team2.add(new Pikeman(getName(), 10, i+1));
                     break;
                 case 4:
-                    team2.add(new Robber(getName()));
+                    team2.add(new Robber(getName(), 10, i+1));
                     break;
                 case 5:
-                    team2.add(new Sniper(getName()));
+                    team2.add(new Sniper(getName(), 10, i+1));
                     break;
                 default:
-                    team2.add(new XBowMan(getName()));
+                    team2.add(new XBowMan(getName(), 10, i+1));
                     break;
             }
             
@@ -129,12 +131,16 @@ public class Program {
         team1.forEach(u -> u.step(team1, team2)); // вызов step у всех, кто записан в этом списке. Всем,
         // кто в team1 находится будет передавться team2, т.е. у каждого из них будет вызываться 
         // метод step и в параметре будет передавться team2. team1 - своя команда, team2 - вражеская
-        
-        
+              
                
     }
 
     private static String getName(){        
         return Names.values()[new Random().nextInt(Names.values().length)].toString();
     }
+
+    
+
+    
+
 }

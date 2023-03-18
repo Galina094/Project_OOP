@@ -5,10 +5,11 @@ import java.util.ArrayList;
 public abstract class Magical_Class extends BaseHero {
     
     protected int mana;
-    protected int magicPower;    
-    
-    public Magical_Class(int hp, int maxHp, int speed, int damage, int defence, int mana, int magicPower, String name) {
-        super(hp, maxHp, speed, damage, defence, name);
+    protected int magicPower;       
+
+    public Magical_Class(int hp, int maxHp, int speed, int damage, int defence, String name, int x, int y, int mana,
+            int magicPower) {
+        super(hp, maxHp, speed, damage, defence, name, x, y);
         this.mana = mana;
         this.magicPower = magicPower;
     }
