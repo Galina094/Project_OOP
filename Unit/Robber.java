@@ -11,5 +11,10 @@ public class Robber extends Warrior_Class{
         return String.format("Robber: %s", 
                                     super.getInfo()); 
     } 
+
+    @Override
+    public String getNAME() {        
+        return "Robber";
+    }
     
 }

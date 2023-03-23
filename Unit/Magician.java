@@ -17,6 +17,11 @@ public class Magician extends Magical_Class {
         return "Magician";
     }
 
+    @Override
+    public String getNAME() {        
+        return "Magician";
+    }
+
     
     
 }

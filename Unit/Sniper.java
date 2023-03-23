@@ -17,11 +17,16 @@ public class Sniper extends Shooter_Class {
     @Override
     public void step(ArrayList<BaseHero> friendly_team, ArrayList<BaseHero> team2) {
         super.step(friendly_team, team2);
-        System.out.println("Sniper's shoot!!!");
+        // System.out.println("Sniper's shoot!!!");
     }
 
     @Override
     public String toString() {        
+        return "Sniper";
+    }
+
+    @Override
+    public String getNAME() {        
         return "Sniper";
     }
 

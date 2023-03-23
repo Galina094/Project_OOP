@@ -14,16 +14,15 @@ public abstract class Warrior_Class extends BaseHero {
         this.maxSpeed = maxSpeed;
     }
 
-    @Override
-    public String getInfo() {
-        return String.format("%s  PhisicalPower: %d  MaxHp: %d   MaxSpeed: %d", 
-                            super.getInfo(), this.phisicalPower, this.maxHp, this.maxSpeed);
-    }
+    // @Override
+    // public String getInfo() {
+    //     return String.format("%s ", super.getInfo());
+    // }
 
-    @Override
-    public void step(ArrayList<BaseHero> team1, ArrayList<BaseHero> team2) {
+    // @Override
+    // public void step(ArrayList<BaseHero> team1, ArrayList<BaseHero> team2) {
         
-    }
+    // }
     
     
 

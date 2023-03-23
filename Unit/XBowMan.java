@@ -17,7 +17,12 @@ public class XBowMan extends Shooter_Class {
     @Override
     public void step(ArrayList<BaseHero> friendly_team, ArrayList<BaseHero> team2) {
         super.step(friendly_team, team2);
-        System.out.println("XBowMan's shoot!!!");
+        // System.out.println("XBowMan's shoot!!!");
+    }
+    
+    @Override
+    public String getNAME() {        
+        return "XBowMan";
     }
     
 }

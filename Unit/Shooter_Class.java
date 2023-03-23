@@ -18,11 +18,11 @@ public abstract class Shooter_Class extends BaseHero {
         this.accuracy = accuracy;
     }
 
-    @Override
-    public String getInfo() {
-        return String.format("%s  Arrovs: %d  Accuracy: %d", 
-                            super.getInfo(), this.arrovs, this.accuracy);
-    }
+    // @Override
+    // public String getInfo() {
+    //     return String.format("%s  Arrovs: %d ", 
+    //                         super.getInfo(), this.arrovs);
+    // }
 
     @Override
     public String toString() {
@@ -38,20 +38,20 @@ public abstract class Shooter_Class extends BaseHero {
     @Override
     public void step(ArrayList<BaseHero> friendly_team, ArrayList<BaseHero> team2 ) {               
         if (!state.equals("Die") && this.arrovs > 0) {        
-            System.out.println("Can Shoot!");   
+            // System.out.println("Can Shoot!");   
             for (BaseHero baseHero : team2) {
                 if ((baseHero.name == getDistance(this.position.x, this.position.y, team2))) {                    
-                    System.out.println(this.getClass().getSimpleName() + " Shoot in " + baseHero.getInfo());
+                    // System.out.println(this.getClass().getSimpleName() + " Shoot in " + baseHero.getInfo());
                     this.getAttack(baseHero, damage);
-                    System.out.println("=== Было стрел " + String.valueOf(this.arrovs));
+                    // System.out.println("=== Было стрел " + String.valueOf(this.arrovs));
                     this.arrovs -- ; 
-                    System.out.println("--- Осталось стрел " + String.valueOf(this.arrovs)); 
+                    // System.out.println("--- Осталось стрел " + String.valueOf(this.arrovs)); 
                     for (BaseHero baseHero2 : friendly_team) {
                         if (baseHero2.toString().equals("FarmerMan") && baseHero2.state=="Stand") {
                             baseHero2.state = "Empty";
                             this.arrovs++;
-                            System.out.println("+++ Добавили стрел " + String.valueOf(this.arrovs));
-                            System.out.println(baseHero2.name + baseHero2.state);
+                            // System.out.println("+++ Добавили стрел " + String.valueOf(this.arrovs));
+                            // System.out.println(baseHero2.name + baseHero2.state);
                             break;                                         
                         }                         
                     }                              

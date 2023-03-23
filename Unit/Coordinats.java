@@ -11,6 +11,15 @@ public class Coordinats {
         this.y = y;
     }
 
+    public boolean isEquals(Coordinats coordinats){
+
+        if(coordinats.x == this.x && coordinats.y == this.y ){return true;}
+        else return false;
+        
+    }
+
+
+
     
 
     

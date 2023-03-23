@@ -15,4 +15,11 @@ public class Monk extends Magical_Class{
     public String toString() {        
         return "Monk";
     }
+
+    @Override
+    public String getNAME() {        
+        return "Monk";
+    }
+
+    
 }

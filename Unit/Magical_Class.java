@@ -14,14 +14,14 @@ public abstract class Magical_Class extends BaseHero {
         this.magicPower = magicPower;
     }
 
-    @Override
-    public String getInfo() {
-        return String.format("%s  Mana: %d  MagicPower: %d", 
-                            super.getInfo(), this.mana, this.magicPower);
-    }
+    // @Override
+    // public String getInfo() {
+    //     return String.format("%s  Mana: %d  MagicPower: %d", 
+    //                         super.getInfo(), this.mana, this.magicPower);
+    // }    
 
-    @Override
-    public void step(ArrayList<BaseHero> team1, ArrayList<BaseHero> team2) {
+    // @Override
+    // public void step(ArrayList<BaseHero> team1, ArrayList<BaseHero> team2) {
         
-    }
+    // }
 }

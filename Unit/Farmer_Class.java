@@ -15,20 +15,13 @@ public abstract class Farmer_Class extends BaseHero {
     }
 
     public String getInfo() {
-        return String.format("FarmerMan: %s  Nutrition: %d Goodness: %d", 
-                              super.getInfo(), this.nutrition, this.goodness);
+        return String.format("FarmerMan: ", super.getInfo());
     }
 
     @Override
     public String toString() {        
         return "FarmerMan";
     }
-
-    
-
-
-
-
 
     
 }

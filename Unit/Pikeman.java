@@ -9,4 +9,9 @@ public class Pikeman extends Warrior_Class{
     public String getInfo() {        
         return String.format("Pickeman: %s", super.getInfo());   
     } 
+
+    @Override
+    public String getNAME() {        
+        return "Pikeman";
+    }
 }
