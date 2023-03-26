@@ -27,9 +27,10 @@ public class Program {
         init();
 
         while (true){
-            step();
+            
             ConsoleView.view();
             sc.nextLine();
+            step();
 
         }
                

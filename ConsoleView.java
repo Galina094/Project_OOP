@@ -26,7 +26,7 @@ public class ConsoleView {
 
         int npcIndex = 0;
 
-        for (int i = 1; i <= Program.UNIT - 1; i++) {
+        for (int i = 1; i <= Program.UNIT-1 ; i++) {
             for (int j = 1; j <= Program.UNIT; j++) {
                 System.out.print(getChar(new Coordinats(j, i)));
             }

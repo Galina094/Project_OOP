@@ -15,12 +15,19 @@ public abstract class Farmer_Class extends BaseHero {
     }
 
     public String getInfo() {
-        return String.format("FarmerMan: ", super.getInfo());
+        return String.format("%s ", super.getInfo());
     }
 
     @Override
     public String toString() {        
         return "FarmerMan";
+    }
+
+    @Override
+    public void step(ArrayList<BaseHero> friendly_team, ArrayList<BaseHero> team2) {
+        if( !this.state.equals("Die")){
+            this.state = "Stand";
+        }        
     }
 
     

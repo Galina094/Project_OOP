@@ -18,11 +18,11 @@ public abstract class Shooter_Class extends BaseHero {
         this.accuracy = accuracy;
     }
 
-    // @Override
-    // public String getInfo() {
-    //     return String.format("%s  Arrovs: %d ", 
-    //                         super.getInfo(), this.arrovs);
-    // }
+    @Override
+    public String getInfo() {
+        return String.format("%s  Arr: %d ", 
+                            super.getInfo(), this.arrovs);
+    }
 
     @Override
     public String toString() {
@@ -36,7 +36,8 @@ public abstract class Shooter_Class extends BaseHero {
 
 
     @Override
-    public void step(ArrayList<BaseHero> friendly_team, ArrayList<BaseHero> team2 ) {               
+    public void step(ArrayList<BaseHero> friendly_team, ArrayList<BaseHero> team2 ) { 
+        StopProgram(team2);              
         if (!state.equals("Die") && this.arrovs > 0) {        
             // System.out.println("Can Shoot!");   
             for (BaseHero baseHero : team2) {

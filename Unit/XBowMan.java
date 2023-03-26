@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class XBowMan extends Shooter_Class {
 
     public XBowMan(String name, int x, int y) {
-        super(10, 15, 4,3,3, name, x, y, 16,5);
+        super(10, 15, 4,3,3, name, x, y, 30,5);
     }    
 
     @Override

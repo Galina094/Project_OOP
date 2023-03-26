@@ -47,17 +47,17 @@ public abstract class BaseHero implements UnitInterface {
         position = new Coordinats(x, y);
     }
 
-    // @Override
-    // public String getInfo(){
-    //     return String.format(" %s  Hp: %d  Speed: %d   Damage: %d   Defence: %d X: %d Y: %d State: %s" ,   
-    //                                      this.name, this.hp, this.speed, this.damage, this.defence, this.position.x, this.position.y, this.state);
-    // }
-
     @Override
     public String getInfo(){
-        String outStr = String.format(" %-3s  ⚔️ %-3d  \uD83D\uDEE1 %-3d  ♥️%-3d%%  ☠️%-3d   ", 0, 0, defence,(int) hp * 100/maxHp, this.damage);
-        return outStr;
+        return String.format(" Hp: %d, St: %s" ,   
+                                      this.hp, this.state);
     }
+
+    // @Override
+    // public String getInfo(){
+    //     String outStr = String.format(" %-3s  ⚔️ %-3d  \uD83D\uDEE1 %-3d  ♥️%-3d%%  ☠️%-3d   ", 0, 0, defence,(int) hp * 100/maxHp, this.damage);
+    //     return outStr;
+    // }
 
     @Override
     public String toString() {        
@@ -65,21 +65,23 @@ public abstract class BaseHero implements UnitInterface {
     }
 
     @Override
-    public void step(ArrayList<BaseHero> team1, ArrayList<BaseHero> team2) {
-        // System.out.println("Step");        
+    public void step(ArrayList<BaseHero> friendlyTeam, ArrayList<BaseHero> team2) {
+                
     }
 
     public void getDamage(int damage){
         if (this.hp - damage > 0 ){
             this.hp -= damage;
-        } else { this.hp = 0;}
+        } else { this.hp = 0;
+                 this.state="Die";}
     }
 
     public void getAttack(BaseHero target, int damage){
-        int causedDamage = rnd.nextInt(1, damage);
-        // System.out.printf("%s attack %s\t", this.getInfo(), target.getClass().getSimpleName());
-        // System.out.printf(" Power of knock = %d\n", causedDamage);
-        target.getDamage(causedDamage);
+        if (!state.equals("Die") && this.hp > 0) {
+            int causedDamage = rnd.nextInt(1, damage);        
+            target.getDamage(causedDamage);
+        }
+        
     }
 
     public String getDistance(int x, int y, ArrayList<BaseHero> AttacksTeam){
@@ -91,12 +93,23 @@ public abstract class BaseHero implements UnitInterface {
                 if (a < b) {                
                     b=a;   
                     target = baseHero.name;             
-                }
-                
-            }
-            
+                }                
+            }            
         }
         return target;        
+    }
+
+    public void StopProgram(ArrayList<BaseHero> team2){
+        int count=0;               
+        for (BaseHero baseHero : team2) {
+            if (baseHero.state.equals("Die")){
+                count++;
+            }
+        }
+        if (count==11){
+            System.out.println("Play is OFF. ");
+            System.exit(count=11);
+        }
     }
 
     
